@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>AKDEV</title>
+        <link rel="stylesheet" href="./stylesheet/main.css">
+        <script src="./stylesheet/script.js" defer></script>
+        <link rel="icon" href="./stylesheet/img/AKDEV.ico" id="favicon">
+        <!-- <?php
+            $cssPath = './stylesheet/main.css';
+            if (!file_exists($cssPath)) {
+                $cssPath = '../stylesheet/main.css';
+            }
+
+            $jsPath = './stylesheet/script.js';
+            if (!file_exists($jsPath)) {
+                $jsPath = '../stylesheet/script.js';
+            }
+        ?> -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:ital,wght@0,400..700;1,400..700&family=Libre+Barcode+39&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    </head>
+<body>
+    <div id="preloader">
+        <img src="./stylesheet/img/loading.png" alt="">
+    </div>
+
+    <div class="navContainer">
+        <div class="navMenuContainer">
+            <span class="navMenu">MENU</span>
+            <div class="dropdownMenu">
+                <a href="./about.html" class="dropdownLink">ABOUT US</a>
+                <a href="./projects.html" class="dropdownLink">PROJECTS</a>
+                <a href="#" class="dropdownLink" id="contactDropdown">CONTACT</a>
+            </div>
+        </div>
+
+        <a href="./" class="navLogo">AKDEV</a>
+
+        <div class="navLinkContainer">
+            <a href="#" class="navLink" id="navShuffle">GET IN TOUCH</a>
+        </div>
+
+        <script>
+            const shuffleElements = document.querySelectorAll(".navLink, .navMenu");
+            const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789<>/!@#$%^&*()-_=+[]{}|;:',.abcdefghijklmnopqrstuvwxyz";
+
+            function shuffleText(element, text) {
+                const length = text.length;
+                let frame = 0;
+                const totalFrames = 4;
+                clearInterval(element._interval);
+                element._interval = setInterval(() => {
+                    frame++;
+                    if (frame < totalFrames) {
+                        let result = "";
+                        for (let i = 0; i < length; i++) {
+                            result += chars[Math.floor(Math.random() * chars.length)];
+                        }
+                        element.textContent = result;
+                    } else {
+                        element.textContent = text;
+                        clearInterval(element._interval);
+                    }
+                }, 70);
+            }
+
+            function scrollToFooter() {
+                const footer = document.querySelector(".footerContainer");
+                if (!footer) return;
+                // simple, reliable scroll
+                footer.scrollIntoView({ behavior: 'smooth' });
+            }
+
+            shuffleElements.forEach(el => {
+                const originalText = el.textContent;
+                el.addEventListener("mouseenter", () => shuffleText(el, originalText));
+                el.addEventListener("mouseleave", () => shuffleText(el, originalText));
+
+                if (el.classList.contains("navLink")) {
+                    el.addEventListener("click", e => {
+                        e.preventDefault();
+                        clearInterval(el._interval);
+                        el.textContent = originalText;
+                        scrollToFooter();
+                    });
+                }
+            });
+
+            const contactDropdown = document.getElementById("contactDropdown");
+            contactDropdown.addEventListener("click", e => {
+                e.preventDefault();
+                scrollToFooter();
+            });
+        </script>
+    </div>
+
+    <div class="homeMainContainer">
+        <div class="homeIntoContainer">
+            <div class="portfolioContainer">
+                <span class="portfolioTitle">Portfolio</span>
+                <span class="portfolioTitleBar">scrollbabyscrolldown</span>
+                <span class="portfolioScrollTitle">SCROLL BABY! SCROLL!!</span>
+            </div>
+
+            <span class="portfolioName">RAID AKRICH</span>
+        </div>
+
+        <div class="homeAboutContainer">
+            <div class="homeAbout">
+                <span class="homeAboutTitle">ABOUT ME</span>
+
+                <span class="homeAboutDesc">I build refined digital experiences that look sharp and perform flawlessly.</span>
+
+                <span class="homeAboutDescDetail">I CRAFT DIGITAL SOLUTIONS THAT ELEVATE BRANDS AND ENGAGE USERS.</span>
+            </div>
+
+            <div class="homeAboutCta">
+                <a href="./about.html" class="homeAboutCtaTitle">LEARN MORE</a>
+                <span class="homeAboutCtaArrow"></span>
+            </div>
+        </div>
+
+        <div class="homeSightContainer">
+            <div class="homeSightSeperator"></div>
+
+            <div class="homeSightSection">
+                <div class="homeSightTitleContainer">
+                    <span class="homeSightTitle">EXPERIENCE</span>
+                </div>
+
+                <div class="homeSightTableContainer">
+                    <div class="homeSightTableDetailWrapper">
+                        <span class="homeSightTableDetailTitle">2025</span>
+
+                        <div class="homeSightTableDetails">
+                            <div class="homeSightTableDetail" data-image="./stylesheet/img/mkp/VELTAREACH/VELTAREACHLaptop.png">
+                                <span class="homeSightProjectName">VELTAREACH</span>
+                                <span class="homeSightProjectDesc">MARKETING AGENCY</span>
+                            </div>
+
+                            <div class="homeSightProjectSeperator"></div>
+
+                            <div class="homeSightTableDetail" data-image="./stylesheet/img/mkp/AKDEV/AKDEVMobil.png">
+                                <span class="homeSightProjectName">AKDEV</span>
+                                <span class="homeSightProjectDesc">PORTFOLIO WEBSITE</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="homeSightTableSeperator"></div>
+
+                    <div class="homeSightTableDetailWrapper">
+                        <span class="homeSightTableDetailTitle">2023</span>
+
+                        <div class="homeSightTableDetails">
+                            <div class="homeSightTableDetail" data-image="./stylesheet/img/mkp/NOIR/NOIRLaptop.png">
+                                <span class="homeSightProjectName">NOIR</span>
+                                <span class="homeSightProjectDesc">MARKETING AGENCY</span>
+                            </div>
+
+                            <div class="homeSightProjectSeperator"></div>
+
+                            <div class="homeSightTableDetail" data-image="./stylesheet/img/mkp/LOEMORA/LOEMORALaptop.png">
+                                <span class="homeSightProjectName">LOEMORA</span>
+                                <span class="homeSightProjectDesc">FURNITURE STORE</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="homeSightTableSeperator"></div>
+
+                    <div class="homeSightTableDetailWrapper">
+                        <span class="homeSightTableDetailTitle">2021</span>
+
+                        <div class="homeSightTableDetails">
+                            <div class="homeSightTableDetail" data-image="./stylesheet/img/mkp/SLTS/SLTSLaptop.png">
+                                <span class="homeSightProjectName">SLTS</span>
+                                <span class="homeSightProjectDesc">PLASTIC MANUFACTURER</span>
+                            </div>
+
+                            <div class="homeSightProjectSeperator"></div>
+
+                            <div class="homeSightTableDetail" data-image="./stylesheet/img/mkp/ODIORITY/ODIORITYLaptop.png">
+                                <span class="homeSightProjectName">ODIORITY</span>
+                                <span class="homeSightProjectDesc">COMPUTER MAKER</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="homeSightSeperator"></div>
+
+            <div class="homeSightSection">
+                <div class="homeSightTitleContainer" data-section="skills">
+                    <span class="homeSightTitleIndicator">[1]</span>
+                    <span class="homeSightTitle">SKILLS</span>
+                </div>
+
+                <div class="homeSightDescContainer" data-section="skills">
+                    <span>AS A DESIGNER I BUILD DIGITAL EXPERIENCES AND VISUAL SPACES THAT HELP BRANDS STAND OUT AND CONNECT EMOTIONALLY WITH THEIR AUDIENCE.</span>
+                    <span>I SHAPE MEANINGFUL BRAND MOMENTS THROUGH CREATIVITY PRECISION AESTHETICS AND FUNCTIONALITY</span>
+                </div>
+            </div>
+
+            <div class="homeSightSeperator"></div>
+
+            <div class="homeSightSection interactive">
+                <div class="homeSightTitleContainer" data-section="uiux">
+                    <span class="homeSightTitleIndicator">[2]</span>
+                    <span class="homeSightTitle">UI/UX</span>
+                </div>
+
+                <span class="homeSightDesc" data-section="uiux">CREATIVE DESIGN FOCUSED ON REAL USER EXPERIENCE THAT DRIVES BUSINESS FORWARD</span>
+            </div>
+            
+            <div class="homeSightSeperator"></div>
+
+            <div class="homeSightSection interactive">
+                <div class="homeSightTitleContainer" data-section="branding">
+                    <span class="homeSightTitleIndicator">[3]</span>
+                    <span class="homeSightTitle">BRANDING</span>
+                </div>
+
+                <span class="homeSightDesc" data-section="branding">CREATIVE DESIGN FOCUSED ON REAL USER EXPERIENCE THAT DRIVES BUSINESS FORWARD</span>
+            </div>
+
+            <div class="homeSightSeperator"></div>
+
+            <div class="homeSightSection interactive">
+                <div class="homeSightTitleContainer" data-section="creative">
+                    <span class="homeSightTitleIndicator">[4]</span>
+                    <span class="homeSightTitle">CREATIVE</span>
+                </div>
+
+                <span class="homeSightDesc" data-section="creative">CREATIVE DESIGN FOCUSED ON REAL USER EXPERIENCE THAT DRIVES BUSINESS FORWARD</span>
+            </div>
+
+            <div class="homeSightSeperator"></div>
+
+            <div class="homeSightSection interactive">
+                <div class="homeSightTitleContainer" data-section="developing">
+                    <span class="homeSightTitleIndicator">[5]</span>
+                    <span class="homeSightTitle">DEVELOPING</span>
+                </div>
+
+                <span class="homeSightDesc" data-section="developing">CREATIVE DESIGN FOCUSED ON REAL USER EXPERIENCE THAT DRIVES BUSINESS FORWARD</span>
+            </div>
+
+            <div class="homeSightSeperator"></div>
+        </div>
+
+        <div class="footerContainer">
+            <div class="footerReachOutContainer">
+                <span class="footerReachOutTitle">Let's work together</span>
+                <a href="mailto:raidakrich@akdev.com" class="footerReachOutLink" id="reachLink">GET IN TOUCH</a>
+            </div>
+
+            <div class="copyrightsContainer">
+                <span class="footerLogo">AKDEV</span>
+                <span class="copyrightsTitle"><span class="copyrightSymbol">©</span> AKDEV All Rights Reserved</span>
+            </div>
+        </div>
+
+        <script src="https://unpkg.com/@studio-freight/lenis/dist/lenis.min.js"></script>
+
+        <script>
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+
+            if (!prefersReducedMotion && !isChrome) {
+            const lenis = new Lenis({
+                duration: 1, 
+                smooth: true, 
+                smoothTouch: true,   
+                direction: 'vertical',
+                gestureOrientation: 'vertical'
+            });
+
+            function raf(time) {
+                lenis.raf(time);
+                requestAnimationFrame(raf);
+            }
+            requestAnimationFrame(raf);
+
+            window._lenis = lenis;
+            }
+
+            // Hover morph text effect
+            const link = document.getElementById("reachLink");
+            const original = "GET IN TOUCH";
+            const target = "RAIDAKRICH@AKDEV.COM";
+            let interval = null;
+            let speed = 40;
+
+            function morph(from, to, callback) {
+            clearInterval(interval);
+            let maxLength = Math.max(from.length, to.length);
+            let current = from.padEnd(maxLength, " ");
+            let final = to.padEnd(maxLength, " ");
+            let index = 0;
+
+            interval = setInterval(() => {
+                index++;
+                let output = final.substring(0, index) + current.substring(index);
+                link.innerText = output.trimRight();
+                if (index >= maxLength) {
+                clearInterval(interval);
+                link.innerText = to;
+                if (callback) callback();
+                }
+            }, speed);
+            }
+
+            link.addEventListener("mouseenter", () => {
+                link.classList.add("active");
+                morph(original, target);
+            });
+
+            link.addEventListener("mouseleave", () => {
+                link.classList.remove("active");
+                morph(target, original);
+            });
+        </script>
+    </div>
+  
+    <script>
+        (function(){
+            const defaultImg = './stylesheet/img/akdev.png'; 
+
+            const preview = document.createElement('div');
+            preview.className = 'homePreview';
+            preview.innerHTML = '<img id="homePreviewImg" src="" alt="preview">';
+            document.body.appendChild(preview);
+            const previewImg = document.getElementById('homePreviewImg');
+
+            const items = Array.from(document.querySelectorAll('.homeSightTableDetail'));
+            if (!items.length) return;
+
+            let targetY = window.innerHeight / 2;
+            let currentY = targetY;
+            let shown = false;
+            let raf = null;
+            let currentSrc = '';
+
+            function lerp(a,b,t){return a + (b-a)*t}
+
+            function animate(){
+                currentY = lerp(currentY, targetY, 0.16);
+                const y = currentY - (preview.offsetHeight/2);
+                preview.style.transform = `translateY(${y}px) scale(${shown?1:0.98})`;
+                raf = requestAnimationFrame(animate);
+            }
+
+            function show(src, clientY){
+                if (!src) src = defaultImg;
+                if (src === currentSrc){
+                    targetY = clientY || (window.innerHeight / 2);
+                    if (!shown){
+                        shown = true;
+                        preview.style.opacity = 1;
+                        if (!raf) animate();
+                    }
+                    return;
+                }
+
+                previewImg.style.transition = 'opacity .45s ease, transform .55s cubic-bezier(.2,.9,.2,1), filter .55s ease';
+                previewImg.style.willChange = 'opacity, transform, filter';
+
+                previewImg.style.transform = 'scale(.96) translateY(6px)';
+                previewImg.style.filter = 'blur(6px) saturate(.9)';
+                previewImg.style.opacity = '0';
+
+                setTimeout(()=> {
+                    previewImg.src = src;
+                    previewImg.onload = ()=> {
+                        requestAnimationFrame(()=> {
+                            previewImg.style.transform = 'scale(1) translateY(0)';
+                            previewImg.style.filter = 'blur(0px) saturate(1)';
+                            previewImg.style.opacity = '1';
+                        });
+                    };
+                }, 260);
+
+                currentSrc = src;
+                targetY = clientY || (window.innerHeight / 2);
+                if (!shown){
+                    shown = true;
+                    preview.style.opacity = 1;
+                    if (!raf) animate();
+                }
+            }
+
+            function hide(){
+                shown = false;
+                preview.style.opacity = 0;
+                setTimeout(()=>{
+                    if (!shown && raf){ cancelAnimationFrame(raf); raf = null; }
+                }, 220);
+            }
+
+            items.forEach(item=>{
+                const imgFromData = item.dataset && item.dataset.image ? item.dataset.image : defaultImg;
+
+                item.addEventListener('mouseenter', e=>{
+                    if (('ontouchstart' in window) || window.innerWidth < 700) return;
+                    show(imgFromData, e.clientY);
+                });
+
+                item.addEventListener('mousemove', e=>{
+                    if (('ontouchstart' in window) || window.innerWidth < 700) return;
+                    targetY = e.clientY;
+                });
+
+                item.addEventListener('mouseleave', ()=>{
+                    if (('ontouchstart' in window) || window.innerWidth < 700) return;
+                    hide();
+                });
+
+                item.addEventListener('click', e=>{});
+            });
+
+            window.addEventListener('resize', ()=> {
+                targetY = Math.min(Math.max(targetY, 0), window.innerHeight);
+                currentY = targetY;
+            });
+        })();
+    </script>
+</body>
+</html>

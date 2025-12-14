@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>AKDEV</title>
+        <link rel="stylesheet" href="./stylesheet/main.css">
+        <script src="./stylesheet/script.js" defer></script>
+        <link rel="icon" href="./stylesheet/img/AKDEV.ico" id="favicon">
+        <!-- <?php
+            $cssPath = './stylesheet/main.css';
+            if (!file_exists($cssPath)) {
+                $cssPath = '../stylesheet/main.css';
+            }
+
+            $jsPath = './stylesheet/script.js';
+            if (!file_exists($jsPath)) {
+                $jsPath = '../stylesheet/script.js';
+            }
+        ?> -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:ital,wght@0,400..700;1,400..700&family=Libre+Barcode+39&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    </head>
+    <body>
+        <div id="preloader">
+            <img src="./stylesheet/img/loading.png" alt="">
+        </div>
+
+        <div class="navContainer">
+            <div class="navMenuContainer">
+                <span class="navMenu">MENU</span>
+                <div class="dropdownMenu">
+                    <a href="./about.html" class="dropdownLink">ABOUT US</a>
+                    <a href="./projects.html" class="dropdownLink">PROJECTS</a>
+                    <a href="#" class="dropdownLink" id="contactDropdown">CONTACT</a>
+                </div>
+            </div>
+
+            <a href="./" class="navLogo">AKDEV</a>
+
+            <div class="navLinkContainer">
+                <a href="#" class="navLink" id="navShuffle">GET IN TOUCH</a>
+            </div>
+
+            <script>
+                const shuffleElements = document.querySelectorAll(".navLink, .navMenu");
+                const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789<>/!@#$%^&*()-_=+[]{}|;:',.abcdefghijklmnopqrstuvwxyz";
+
+                function shuffleText(element, text) {
+                    const length = text.length;
+                    let frame = 0;
+                    const totalFrames = 4;
+                    clearInterval(element._interval);
+                    element._interval = setInterval(() => {
+                        frame++;
+                        if (frame < totalFrames) {
+                            let result = "";
+                            for (let i = 0; i < length; i++) {
+                                result += chars[Math.floor(Math.random() * chars.length)];
+                            }
+                            element.textContent = result;
+                        } else {
+                            element.textContent = text;
+                            clearInterval(element._interval);
+                        }
+                    }, 70);
+                }
+
+                function scrollToFooter() {
+                    const footer = document.querySelector(".footerContainer");
+                    if (!footer) return;
+                    // simple, reliable scroll
+                    footer.scrollIntoView({ behavior: 'smooth' });
+                }
+
+                shuffleElements.forEach(el => {
+                    const originalText = el.textContent;
+                    el.addEventListener("mouseenter", () => shuffleText(el, originalText));
+                    el.addEventListener("mouseleave", () => shuffleText(el, originalText));
+
+                    if (el.classList.contains("navLink")) {
+                        el.addEventListener("click", e => {
+                            e.preventDefault();
+                            clearInterval(el._interval);
+                            el.textContent = originalText;
+                            scrollToFooter();
+                        });
+                    }
+                });
+
+                const contactDropdown = document.getElementById("contactDropdown");
+                contactDropdown.addEventListener("click", e => {
+                    e.preventDefault();
+                    scrollToFooter();
+                });
+            </script>
+        </div>
+
+        <div class="aboutContainer">
+            <div class="aboutTitleContainer">
+                <span class="aboutTitleMy">MY</span>
+                <span class="aboutTitleBackground">Background</span>
+            </div>
+
+            <div class="aboutWrapper">
+                <div class="aboutSeperator"></div>
+
+                <div class="aboutContent">
+                    <div class="aboutContentTitleContainer">
+                        <span class="aboutContentTitle">MY STORY</span>
+                        <img src="./stylesheet/img/prp.png" alt="" class="aboutContentImg">
+                    </div>
+
+                    <div class="aboutContentDetail">
+                        <p>I'm Raid Akrich, a web designer and developer based in Spain. With years of hands-on experience crafting everything from marketing sites to interactive apps, I've honed my eye for clean aesthetics and functional code. What gets me going is seeing a design leap off the screen and actually work- that's the thrill I'm always chasing.</p>
+                        <p>My background comes from years of self-directed learning and building sites purely out of curiosity. What started as tweaking templates turned into fully custom projects, each one teaching me something new about design and code. Along the way, I've experimented with different tools and techniques, gradually shaping a style that's clean, functional, and focused on the user.</p>
+                        <p>Looking ahead, I'm keen to team up with businesses that share a straightforward, no-nonsense approach. My goal's simple: take those creative skills I've built up and help put solid products in the spotlight.</p>
+                    </div>
+                </div>
+
+                <div class="aboutSeperator"></div>
+
+                <div class="aboutContent">
+                    <div class="aboutContentTitleContainer">
+                        <span class="aboutContentTitle">MY SKILLS</span>
+                    </div>
+
+                    <div class="aboutContentDetailMulti">
+                        <div class="aboutContentDetailMultiTitle">
+                            <span>FRONT END</span>
+                            <span>BACK END</span>
+                            <span>UI/UX</span>
+                        </div>
+
+                        <div class="aboutSeperator"></div>
+
+                        <div class="aboutContentDetialMultilistContainer">
+                            <div class="aboutContentDetailMultiList">
+                                <span>HTML5</span>
+                                <span>CSS3</span>
+                                <span>JavaScript</span>
+                                <span>React</span>
+                                <span>Bootstrap</span>
+                                <span>Sass</span>
+                            </div>
+                            <div class="aboutContentDetailMultiList">
+                                <span>PHP</span>
+                                <span>MySQL</span>
+                                <span>Node.js</span>
+                                <span>MongoDB</span>
+                            </div>
+                            <div class="aboutContentDetailMultiList">
+                                <span>Figma</span>
+                                <span>Adobe XD</span>
+                                <span>Adobe Photoshop</span>
+                                <span>Adobe Illustrator</span>
+                                <span>Prototyping</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="aboutSeperator"></div>
+            </div>
+
+            <div class="footerContainer">
+                <div class="footerReachOutContainer">
+                    <span class="footerReachOutTitle">Let's work together</span>
+                    <a href="mailto:raidakrich@akdev.com" class="footerReachOutLink" id="reachLink">GET IN TOUCH</a>
+                </div>
+
+                <div class="copyrightsContainer">
+                    <span class="footerLogo">AKDEV</span>
+                    <span class="copyrightsTitle"><span class="copyrightSymbol">©</span> AKDEV All Rights Reserved</span>
+                </div>
+            </div>
+
+            <script src="https://unpkg.com/@studio-freight/lenis/dist/lenis.min.js"></script>
+
+            <script>
+                const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                const isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+
+                if (!prefersReducedMotion && !isChrome) {
+                const lenis = new Lenis({
+                    duration: 1, 
+                    smooth: true, 
+                    smoothTouch: true,   
+                    direction: 'vertical',
+                    gestureOrientation: 'vertical'
+                });
+
+                function raf(time) {
+                    lenis.raf(time);
+                    requestAnimationFrame(raf);
+                }
+                requestAnimationFrame(raf);
+
+                window._lenis = lenis;
+                }
+
+                // Hover morph text effect
+                const link = document.getElementById("reachLink");
+                const original = "GET IN TOUCH";
+                const target = "RAIDAKRICH@AKDEV.COM";
+                let interval = null;
+                let speed = 40;
+
+                function morph(from, to, callback) {
+                clearInterval(interval);
+                let maxLength = Math.max(from.length, to.length);
+                let current = from.padEnd(maxLength, " ");
+                let final = to.padEnd(maxLength, " ");
+                let index = 0;
+
+                interval = setInterval(() => {
+                    index++;
+                    let output = final.substring(0, index) + current.substring(index);
+                    link.innerText = output.trimRight();
+                    if (index >= maxLength) {
+                    clearInterval(interval);
+                    link.innerText = to;
+                    if (callback) callback();
+                    }
+                }, speed);
+                }
+
+                link.addEventListener("mouseenter", () => {
+                    link.classList.add("active");
+                    morph(original, target);
+                });
+
+                link.addEventListener("mouseleave", () => {
+                    link.classList.remove("active");
+                    morph(target, original);
+                });
+            </script>
+        </div>
+    </body>
+</html>
